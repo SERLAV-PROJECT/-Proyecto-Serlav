@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Factura;
 use App\Models\Prenda;
+use App\Http\Requests\StorePrendaRequest;
 
 class PrendaController extends Controller
 {
@@ -20,12 +20,12 @@ class PrendaController extends Controller
    
     public function create()
     {
-        $factura = Factura::All(); 
-        return view('prenda.createprenda')->with('factura', $factura);
+        $prenda = Prenda::All(); 
+        return view('prenda.createprenda')->with('factura', $prenda);
     }
 
    
-    public function store(Request $request)
+    public function store(StorePrendaRequest $request)
     {
         $prendas = new Prenda; 
        
@@ -55,7 +55,7 @@ class PrendaController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(StorePrendaRequest $request, $id)
     {
         $prenda = Prenda::find($id);     
 
@@ -68,7 +68,8 @@ class PrendaController extends Controller
 
         $prenda -> save();
 
-        return redirect('/prendas');
+        return redirect()->route('/prendas', $id)->with('success', 'Datos Guardados');
+      
     }
 
     public function destroy($id)

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Detalle;
+use App\Models\Prenda;
 
 class DetalleController extends Controller
 {
@@ -25,8 +26,8 @@ class DetalleController extends Controller
      */
     public function create()
     {
-        $detalle = Detalle::All();
-        return view('detalle.createdetalle')->with('detalle', $detalle);
+        $prenda = Prenda::All();
+        return view('detalle.createdetalle')->with('prenda', $prenda);
     }
 
     /**
@@ -37,16 +38,12 @@ class DetalleController extends Controller
      */
     public function store(Request $request)
     {
-        $datos = $request->validate([
-            'descripcion' => 'required | max:50'
-           
-        ],
-        [
-            'required' => 'Campo obligatorio'
-        ]
-        );
+        $detalles = new Detalle;
 
-        $detalles = Detalle::create($datos);
+        $detalles -> descripcion = $request -> get('descripcion');
+        $detalles -> idPrenda = $request -> get('prenda_id');
+
+        $detalles -> save();
 
         return redirect('/detalles');
     }
@@ -86,7 +83,8 @@ class DetalleController extends Controller
         $detalle = Detalle::find($id);     
 
         $detalle -> descripcion = $request -> get('descripcion');
-        $detalle -> 
+        
+        $detalle -> idPrenda = $request -> get('prenda_id');
        
         $detalle -> save();
 

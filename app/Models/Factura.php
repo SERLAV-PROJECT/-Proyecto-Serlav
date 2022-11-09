@@ -17,8 +17,14 @@ class Factura extends Model
         'nombreCliente',
         'fecha',
         'valorTotal',
-        'estado'
+        'estado',
+        'detalle_id',
         
     ];
+
+    public function detalle()
+    {
+        return $this->belongsTo('App\Models\Detalle','id', 'detalle_id');
+    } 
 
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Factura;
 use App\Models\User;
+use App\Models\Detalle;
 
 class FacturaController extends Controller
 {
@@ -27,7 +28,11 @@ class FacturaController extends Controller
     public function create()
     {
         $usuario = User::All();
-        return view('factura.createfactura')->with('usuario', $usuario);
+        $detalle = Detalle::All();
+        return view('factura.createfactura', ['usuario', $usuario , 'detalle', $detalle]);
+
+
+    
     }
 
     /**
@@ -38,20 +43,18 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-        $datos = $request->validate([
-            'nombreCliente' => 'required | max:50',
-            'valorTotal' => 'required',
-            'fecha' => 'required',
-            'estado' => 'required | in:Activo,Inactivo',
-            "user_id" => 'required|exists:usuario,id',
-        ],
-        [
-            'required' => 'Campo obligatorio'
-        ]
-        );
 
-        $facturas = Factura::create($datos);
+        $facturas = new Factura;
 
+        $facturas->nombreCliente = $request->get('nombreCliente');
+        $facturas->fecha = $request->get('fecha');
+        $facturas->valorTotal = $request->get('valorTotal');
+        $facturas->estado = $request->get('estado');
+        $facturas->idUsuario = $request->get('usuario_id');
+        $facturas->idDetalle = $request->get('detalle_id');
+
+        $facturas->save();
+        
         return redirect('/facturas');
     }
 
@@ -94,6 +97,7 @@ class FacturaController extends Controller
         $factura->valorTotal = $request->get('valorTotal');
         $factura->estado = $request->get('estado');
         $factura->idUsuario = $request->get('usuario_id');
+        $factura->idDetalle = $request->get('detalle_id');
 
         $factura->save();
 
