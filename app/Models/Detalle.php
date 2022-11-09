@@ -16,4 +16,10 @@ class Detalle extends Model
         'prenda_id'
         
     ];
+
+    public function prenda()
+    {
+        return $this->belongsTo('App\Models\Prenda','id', 'prenda_id');
+    } 
+
 }

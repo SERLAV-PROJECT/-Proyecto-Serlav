@@ -12,10 +12,13 @@ class Factura extends Model
     protected $table = 'Factura';
 
     protected $fillable = [
+        
         'user_id',
         'nombreCliente',
         'fecha',
         'valorTotal',
-        'estado',
+        'estado'
+        
     ];
+
 }

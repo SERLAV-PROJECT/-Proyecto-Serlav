@@ -4,36 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pago;
+use App\Models\Factura;
 
 class PagoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        $pagos = Pago::all();
+        $pagos = Pago::get();
         return view('pago.listpago')->with('pagos', $pagos);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        return view('pago.createpago');
+        $factura = Factura::All(); 
+        return view('prenda.createpago')->with('factura', $factura); 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         
@@ -41,6 +30,7 @@ class PagoController extends Controller
 
         $pagos -> valor = $request -> get('valor');
         $pagos -> estado = $request -> get('estado');
+        $pagos -> factura_id = $request -> get('factura_id');
 
         $pagos -> save();
 
@@ -48,36 +38,19 @@ class PagoController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $pago = Pago::find($id);
         return view('pago.editpago')->with('pago', $pago);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function update(Request $request, $id)
     {
         
@@ -85,6 +58,7 @@ class PagoController extends Controller
         
         $pago -> valor = $request -> get('valor');
         $pago -> estado = $request -> get('estado');
+        $pago-> factura_id = $request->get('factura_id');
 
         $pago -> save();
 
@@ -92,12 +66,7 @@ class PagoController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
         $pago = Pago::find($id); 

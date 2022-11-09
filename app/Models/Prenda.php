@@ -12,13 +12,15 @@ class Prenda extends Model
     protected $table = 'prenda';
 
     protected $fillable = [
+
         'nombrePrenda',
         'tipoTela',
         'color',
         'cantidad',
-        'valor',
-        'factura_id' 
+        'valor'
+        
     ];
 
+    
 
 }

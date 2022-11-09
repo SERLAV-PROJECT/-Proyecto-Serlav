@@ -12,9 +12,15 @@ class Pago extends Model
     protected $table = 'pago';
 
     protected $fillable = [
+
         'valor',
         'factura_id',
-        'estado',
+        'estado'
         
     ];
+
+    public function factura()
+    {
+        return $this->belongsTo('App\Models\Factura','id', 'factura_id'); 
+    }
 }

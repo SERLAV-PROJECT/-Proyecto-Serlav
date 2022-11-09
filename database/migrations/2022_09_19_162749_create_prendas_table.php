@@ -20,11 +20,6 @@ return new class extends Migration
             $table->string('color');
             $table->Integer('cantidad');
             $table->mediumInteger('valor');
-            
-            $table->unsignedBigInteger('factura_id');
- 
-            $table->foreign('factura_id')->references('id')->on('factura');
-
             $table->timestamps();
         });
     }
