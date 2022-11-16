@@ -73,7 +73,9 @@ class DetalleController extends Controller
     public function edit($id)
     {
         $detalle = Detalle::find($id);
-        return view('detalle.editdetalle')->with('detalle', $detalle);
+        $prenda = Prenda::All();
+        $factura = Factura::All();
+        return view('detalle.editdetalle')->with('detalle', $detalle)->with('prenda',$prenda)->with('factura',$factura);
     }
 
     /**
@@ -93,7 +95,7 @@ class DetalleController extends Controller
      
         $detalle -> save();
 
-        return redirect()->route('/detalles', $id)->with('success', 'Datos Guardados');
+        return redirect('/detalles');
     }
 
     /**

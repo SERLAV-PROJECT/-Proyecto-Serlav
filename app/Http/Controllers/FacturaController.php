@@ -29,6 +29,7 @@ class FacturaController extends Controller
      */
     public function create()
     {
+        
         $usuario = User::All();
    
         return view('factura.createfactura')->with('usuario', $usuario);
@@ -81,7 +82,8 @@ class FacturaController extends Controller
     public function edit($id)
     {
         $factura = Factura::find($id);
-        return view('factura.editfactura')->with('factura',$factura);
+        $usuario = User::all();
+        return view('factura.editfactura')->with('factura',$factura)->with('usuario',$usuario);
     }
 
     /**
@@ -103,7 +105,7 @@ class FacturaController extends Controller
     
         $factura->save();
 
-        return redirect()->route('/facturas', $id)->with('success', 'Datos Guardados');
+        return redirect('/facturas');
     }
 
     /**
