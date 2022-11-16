@@ -21,8 +21,6 @@ return new class extends Migration
             $table->string('estado');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('detalle_id');
-            $table->foreign('detalle_id')->references('id')->on('detalle');           
             $table->timestamps(); 
         });
     }

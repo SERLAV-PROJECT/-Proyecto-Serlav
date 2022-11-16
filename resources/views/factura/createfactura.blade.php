@@ -49,10 +49,16 @@
         <label for="" class="form-label">Usuario</label>
         <select name="user_id" id="user_id">
             @foreach ($usuario as $usuario)
-            <option>{{ $usuario->id }}</option>
+            <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
             @endforeach
         </select>
     </div>
+    @error('user_id')
+            <span class="invalid-feedback">{{ $message }}</span>
+    @enderror
+
+
+
     <a href="/facturas" class="btn btn-secondary" tabindex="8">Cancelar</a>
     <button type="submit" class="btn btn-primary" tabindex="9">Guardar</button>
 </form>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pago;
 use App\Models\Factura;
+use App\Http\Requests\StorePagoRequest;
 
 class PagoController extends Controller
 {
@@ -23,7 +24,7 @@ class PagoController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StorePagoRequest $request)
     {
         
         $pagos = new Pago();
@@ -51,7 +52,7 @@ class PagoController extends Controller
     }
 
  
-    public function update(Request $request, $id)
+    public function update(StorePagoRequest $request, $id)
     {
         
         $pago = Pago::find($id);
@@ -62,7 +63,7 @@ class PagoController extends Controller
 
         $pago -> save();
 
-        return redirect('/pagos');
+        return redirect()->route('/pagos', $id)->with('success', 'Datos Guardados');
 
     }
 

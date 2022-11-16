@@ -32,7 +32,8 @@ class StorePrendaRequest extends FormRequest
         }
 
         return [
-            "nombrePrenda" => 'required|min:5|max:50',
+            "nombrePrenda" => 'required|min:4|max:50',
+            "tipoTela" => 'required|min:4|max:50',
             "color" => 'required|min:4|max:25',
             "cantidad" => 'required|min:1|max:20|numeric' ,
             "valor"  => 'required|min:4500|max:15000|numeric'
@@ -44,8 +45,12 @@ class StorePrendaRequest extends FormRequest
         return [
 
             'nombrePrenda.required' => 'Nombre obligatorio',
-            'nombrePrenda.min' => 'El nombre de la prenda    minimo de 5 caractres',
-            'nombrePrenda.max' => 'El nombre de la prenda    maximo de 50 caractres',
+            'nombrePrenda.min' => 'El nombre de la prenda minimo de 4 caractres',
+            'nombrePrenda.max' => 'El nombre de la prenda maximo de 50 caractres',
+
+            'tipoTela.required' => 'Campo obligatorio',
+            'tipoTela.min' => 'El tipo de tela minimo de 4 caractres',
+            'tipoTela.max' => 'El tipo de tela maximo de 50 caractres',
 
             'color.required' => 'Color obligatorio',
             'color.min' => 'El color de la prenda minimo 4 carcteres',

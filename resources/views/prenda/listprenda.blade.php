@@ -1,4 +1,4 @@
-@extends('layouts.plantillacreate');
+@extends('layouts.plantillabase')
 
 @section('css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
@@ -12,32 +12,32 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <table id="usuarios" class="table table-striped table-bordered">
+                                <table id="prendas" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Nombre Cliente</th>
-                                            <th scope="col">Fecha</th>
-                                            <th scope="col">Valor Total</th>
-                                            <th scope="col">Usuario</th>
-                                            <th scope="col">Estado</th>
-                                            <th scope="col" >Acciones <a href="facturas/create" class="btn btn-primary"><i class="fa fa-plus-circle"></i></a></th>
+                                            <th scope="col">Nombre de Prenda</th>
+                                            <th scope="col">Tipo de tela</th>
+                                            <th scope="col">Color</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Valor</th>
+                                            <th scope="col" >Acciones<a href="prendas/create" class="btn btn-primary"><i class="fa fa-plus-circle"></i></a></th>
                                         </tr>
                                      </thead>
                                     <tbody>
-                                        @foreach ($facturas as $factura)
+                                        @foreach ($prendas as $prenda)
                                         <tr>
-                                            <td>{{ $factura->id }}</td>
-                                            <td>{{ $factura->nombreCliente }}</td>
-                                            <td>{{ $factura->fecha }}</td>
-                                            <td>{{ $factura->valorTotal }}</td>
-                                            <td>{{ $factura->user_id}}</td>
-                                            <td>{{ $factura->estado }}</td>
+                                            <td>{{ $prenda->id }}</td>
+                                            <td>{{ $prenda->nombrePrenda }}</td>
+                                            <td>{{ $prenda->tipoTela }}</td>
+                                            <td>{{ $prenda->color }}</td>
+                                            <td>{{ $prenda->cantidad }}</td>
+                                            <td>{{ $prenda->valor}}</td>
                                             <td colspan="2">
-                                                <form action="{{ route ('facturas.destroy',$factura->id) }}" method="POST">
+                                                <form action="{{ route ('prendas.destroy',$prenda->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a href="/facturas/{{ $factura->id }}/edit" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                                <a href="/prendas/{{ $prenda->id }}/edit" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
                                                 <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i> </button>
                                                 </form>
                                             </td>
@@ -63,7 +63,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#facturas').DataTable({
+        $('#usuarios').DataTable({
             "language": {
                 "search": "Buscar",
                 "lengthMenu": "Mostrar _MENU_ registros por página",

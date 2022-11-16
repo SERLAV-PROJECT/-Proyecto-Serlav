@@ -21,6 +21,10 @@ return new class extends Migration
  
             $table->foreign('prenda_id')->references('id')->on('prenda');
 
+            $table->unsignedBigInteger('factura_id');
+ 
+            $table->foreign('factura_id')->references('id')->on('factura');
+
             $table->timestamps();
         });
     }

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\Models\Detalle;
 use App\Models\Prenda;
+use App\Models\Factura;
+use App\Http\Requests\StoreDetalleRequest;
 
 class DetalleController extends Controller
 {
@@ -15,8 +17,8 @@ class DetalleController extends Controller
      */
     public function index()
     {
-        $detalles = Detalle::all();
-        return view('detalle.listdetalle')->with('detalles', $detalles);
+        $detalle = Detalle::all();
+        return view('detalle.listdetalle')->with('detalle', $detalle);
     }
 
     /**
@@ -27,7 +29,8 @@ class DetalleController extends Controller
     public function create()
     {
         $prenda = Prenda::All();
-        return view('detalle.createdetalle')->with('prenda', $prenda);
+        $factura = Factura::All();
+        return view('detalle.createdetalle')->with('prenda',$prenda)->with('factura',$factura);
     }
 
     /**
@@ -36,12 +39,14 @@ class DetalleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreDetalleRequest $request)
     {
         $detalles = new Detalle;
 
         $detalles -> descripcion = $request -> get('descripcion');
-        $detalles -> idPrenda = $request -> get('prenda_id');
+        $detalles -> prenda_id = $request -> get('prenda_id');
+        $detalles -> factura_id = $request -> get('factura_id');
+
 
         $detalles -> save();
 
@@ -78,17 +83,17 @@ class DetalleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreDetalleRequest $request, $id)
     {
         $detalle = Detalle::find($id);     
 
         $detalle -> descripcion = $request -> get('descripcion');
-        
-        $detalle -> idPrenda = $request -> get('prenda_id');
-       
+        $detalle -> prenda_id = $request -> get('prenda_id');
+        $detalle -> factura_id = $request -> get('factura_id');
+     
         $detalle -> save();
 
-        return redirect('/detalles');
+        return redirect()->route('/detalles', $id)->with('success', 'Datos Guardados');
     }
 
     /**

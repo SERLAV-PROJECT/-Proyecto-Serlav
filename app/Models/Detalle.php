@@ -13,7 +13,9 @@ class Detalle extends Model
 
     protected $fillable = [
         'descripcion',
+        'factura_id',
         'prenda_id'
+       
         
     ];
 
@@ -21,5 +23,12 @@ class Detalle extends Model
     {
         return $this->belongsTo('App\Models\Prenda','id', 'prenda_id');
     } 
+
+    public function factura()
+    {
+        return $this->belongsTo('App\Models\Factura','id', 'factura_id');
+    } 
+
+
 
 }

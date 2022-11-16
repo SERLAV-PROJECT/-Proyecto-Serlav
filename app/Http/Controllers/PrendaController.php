@@ -68,7 +68,7 @@ class PrendaController extends Controller
 
         $prenda -> save();
 
-        return redirect()->route('/prendas', $id)->with('success', 'Datos Guardados');
+        return redirect('/prendas');
       
     }
 

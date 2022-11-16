@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Factura;
 use App\Models\User;
-use App\Models\Detalle;
+
+use App\Http\Requests\StoreFacturaRequest;
 
 class FacturaController extends Controller
 {
@@ -17,7 +18,8 @@ class FacturaController extends Controller
     public function index()
     {
         $facturas = Factura::all();
-        return view('factura.listfactura')->with('facturas', $facturas);
+        $usuario = User::all();
+        return view('factura.listfactura')->with('facturas', $facturas)->with('usuario',$usuario);
     }
 
     /**
@@ -28,8 +30,9 @@ class FacturaController extends Controller
     public function create()
     {
         $usuario = User::All();
-        $detalle = Detalle::All();
-        return view('factura.createfactura', ['usuario', $usuario , 'detalle', $detalle]);
+   
+        return view('factura.createfactura')->with('usuario', $usuario);
+        
 
 
     
@@ -41,7 +44,7 @@ class FacturaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFacturaRequest $request)
     {
 
         $facturas = new Factura;
@@ -50,8 +53,8 @@ class FacturaController extends Controller
         $facturas->fecha = $request->get('fecha');
         $facturas->valorTotal = $request->get('valorTotal');
         $facturas->estado = $request->get('estado');
-        $facturas->idUsuario = $request->get('usuario_id');
-        $facturas->idDetalle = $request->get('detalle_id');
+        $facturas->user_id = $request->get('user_id');
+      
 
         $facturas->save();
         
@@ -64,7 +67,7 @@ class FacturaController extends Controller
      * @param  int  $idUsuario
      * @return \Illuminate\Http\Response
      */
-    public function show($idFactura)
+    public function show($id)
     {
         //
     }
@@ -75,9 +78,9 @@ class FacturaController extends Controller
      * @param  int  $idUsuario
      * @return \Illuminate\Http\Response
      */
-    public function edit($idFactura)
+    public function edit($id)
     {
-        $factura = Factura::find($idFactura);
+        $factura = Factura::find($id);
         return view('factura.editfactura')->with('factura',$factura);
     }
 
@@ -88,20 +91,19 @@ class FacturaController extends Controller
      * @param  int  $idUsuario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $idFactura)
+    public function update(StoreFacturaRequest $request, $id)
     {
-        $factura = Factura::find($idFactura);
+        $factura = Factura::find($id);
 
         $factura->nombreCliente = $request->get('nombreCliente');
         $factura->fecha = $request->get('fecha');
         $factura->valorTotal = $request->get('valorTotal');
         $factura->estado = $request->get('estado');
-        $factura->idUsuario = $request->get('usuario_id');
-        $factura->idDetalle = $request->get('detalle_id');
-
+        $factura->user_id = $request->get('user_id');
+    
         $factura->save();
 
-        return redirect('/facturas');
+        return redirect()->route('/facturas', $id)->with('success', 'Datos Guardados');
     }
 
     /**
@@ -110,9 +112,9 @@ class FacturaController extends Controller
      * @param  int  $idUsuario
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idFactura)
+    public function destroy($id)
     {
-        $factura = Factura::find($idFactura);
+        $factura = Factura::find($id);
         $factura->delete();
 
         return redirect('/facturas');

@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('usuarios','App\Http\Controllers\UsuarioController');
 Route::resource('facturas','App\Http\Controllers\FacturaController');
+Route::resource('prendas','App\Http\Controllers\PrendaController');
+Route::resource('detalles','App\Http\Controllers\DetalleController');
+Route::resource('pagos','App\Http\Controllers\PagoController');
 
 Route::get('/', function () {
     return view('welcome');
