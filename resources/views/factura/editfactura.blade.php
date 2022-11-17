@@ -1,7 +1,5 @@
 @extends('layouts.plantillacreate');
 
-@extends('layouts.plantillacreate');
-
 @section('addPendra')
 
         <!-- Content -->
