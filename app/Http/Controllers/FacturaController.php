@@ -89,12 +89,11 @@ class FacturaController extends Controller
      */
     public function edit($idFactura)
     {
-       $detalle = Detalle::all();
+        $detalle = Detalle::where('factura_id', '=', $idFactura)->get();
 
         $factura = Factura::find($idFactura);
 
-       
-        $prendas = Prenda::all();
+        $prendas = Prenda::orderBy('id','DESC')->get();
 
         $usuario = User::all();
         return view('factura.editfactura')->with('factura',$factura)->with('detalle',$detalle)->with('usuario',$usuario)->with('prendas', $prendas);

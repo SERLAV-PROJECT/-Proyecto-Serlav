@@ -41,8 +41,8 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Detalle</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="/detalles">Basic Form</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="/detalles/create">Advanced Form</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="/detalles">Listar Detalles</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="/detalles/create">Crear Detalles</a></li>
                         </ul>
                     </li>
                     @endcan
@@ -51,8 +51,8 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Pagos</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="/pagos">Basic Form</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="/pagos/create">Advanced Form</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="/pagos">Listar Pagos</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="/pagos/create">Crear Pagos</a></li>
                         </ul>
                     </li>
                     @endcan
