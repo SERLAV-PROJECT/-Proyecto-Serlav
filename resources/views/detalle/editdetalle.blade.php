@@ -47,13 +47,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-
-
-                              
                                
-                                
-                                        
-                                       
                                 <a href="/detalles" class="btn btn-secondary" tabindex="9">Cancelar</a>
                                 <button type="submit" class="btn btn-primary" tabindex="10">Guardar</button>
                             </form>

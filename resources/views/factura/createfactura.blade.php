@@ -26,16 +26,6 @@
         @enderror
     </div>
     <div class="mb-3">
-        <label for="" class="form-label">Valor Total</label>
-        <input type="number" id="valorTotal" name="valorTotal" class="form-control @error('valorTotal') is-invalid @enderror" value="{{ old('valorTotal') }}" tabindex="3">
-        <div class="valid-feedback">
-            Correcto!
-        </div>
-        @error('valorTotal')
-            <span class="invalid-feedback">{{ $message }}</span>
-        @enderror
-    </div>
-    <div class="mb-3">
         <label for="" class="form-label">Usuario</label>
         <select name="user_id" id="user_id">
             @foreach ($usuarios as $usuario)

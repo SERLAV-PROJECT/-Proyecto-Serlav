@@ -15,6 +15,42 @@
                                     <div class="card br-0">
                                         <div class="card-body">
                                             <h4 class="box-title">Factura</h4>
+                                            <form action="/facturas/{{ $factura->id }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <a href="/facturas"  style="margin-left: 90%; margin-top:-4%" class="btn btn-secondary" tabindex="8">Cancelar</a>
+                                            <button type="submit" style="margin-left: 80%; margin-top:-4%" class="btn btn-primary" tabindex="9">Guardar</button>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Nombre Cliente</label>
+                                                <input type="text" id="nombreCliente" name="nombreCliente" class="form-control @error('nombreCliente') is-invalid @enderror" value="{{$factura->nombreCliente}}" tabindex="1">
+                                                <div class="valid-feedback">
+                                                    Correcto!
+                                                </div>
+                                                @error('nombreCliente')
+                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Fecha</label>
+                                                <input type="date" id="fecha" name="fecha" class="form-control @error('fecha') is-invalid @enderror" value="{{ $factura->fecha }}" tabindex="2">
+                                                <div class="valid-feedback">
+                                                    Correcto!
+                                                </div>
+                                                @error('estado')
+                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class=" form-control-label">Valor Total</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon"><i class="fa fa-bold"></i></div>
+                                                    <input type="text" id="valor" name="valor" class="form-control" value="{{ $total }}" tabindex="2">
+                                                    <div class="valid-feedback">
+                                                        Correcto!
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </form>
                                         </div>
                                         <div class="card-body--">
                                             <div class="table-stats order-table ov-h">
@@ -99,14 +135,40 @@
                                         <div class="card-body">
                                             <h4 class="box-title">Acciones</h4>
                                         </div>
-                                        <div class="card-body--">
-                                            <a href="/pagos/create" class="btn btn-primary"><i class="fa fa-plus-circle"></i></a>
+                                        <div class="card-body">
+                                            <form action="/pagos" method="POST">
+                                            @csrf
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">Factura</label>
+                                                <select name="factura_id" id="factura_id">
+                                                    <option value="{{ $factura->id}}">{{ $factura->fecha }}</option>
+                                                </select>
+                                            </div>
+                                            <br> 
+                                            <div class="form-group">
+                                                <label class=" form-control-label">Valor Total</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon"><i class="fa fa-bold"></i></div>
+                                                    <input type="text" id="valor" name="valor" class="form-control" value="{{ $total }}" tabindex="2">
+                                                    <div class="valid-feedback">
+                                                        Correcto!
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                            <br>
+
+                                            <br>
+                                                    
+                                            <a href="/pagos" class="btn btn-secondary" tabindex="9">Cancelar</a>
+                                            <button type="submit" class="btn btn-primary" tabindex="10">Pagar</button>
+                                        </form>
                                         </div>
                                     </div> <!-- /.card -->
                                 </div>
                             </div>
                         </div> <!-- /.col-md-4 -->
 
+                        <br>
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">

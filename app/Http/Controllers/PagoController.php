@@ -20,9 +20,7 @@ class PagoController extends Controller
 
     public function create()
     {
-        $factura = Factura::All();
-        $pago = Pago::All(); 
-        return view('pago.createpago')->with('factura', $factura)->with('pago',$pago); 
+
     }
 
 
@@ -32,7 +30,13 @@ class PagoController extends Controller
         $pagos = new Pago();
 
         $pagos -> valor = $request -> get('valor');
-        $pagos -> estado = $request -> get('estado');
+        
+        if($pagos->valor == $request -> get('valor'))
+        {
+            $pagos -> estado = "Paga";
+        }else{
+            $pagos -> estado = "Pendiente";
+        }
         $pagos -> factura_id = $request -> get('factura_id');
 
         $pagos -> save();

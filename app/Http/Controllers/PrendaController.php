@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Prenda;
+use App\Models\Factura;
 use App\Http\Requests\StorePrendaRequest;
 
 class PrendaController extends Controller
 {
-    
-
-    
     public function index()
     {
         $prendas = Prenda::get();

@@ -27,9 +27,8 @@ class StorePagoRequest extends FormRequest
     public function rules()
     {
         return [
-            "valor"  => 'required|min:4500|max:15000|numeric',
+            "valor"  => 'required|min:4500|numeric',
             "factura_id" => 'required|exists:factura,id',
-            "estado" => 'required|in:Paga,Pendiente,Vencida'
         ];
     }
 
@@ -43,10 +42,6 @@ class StorePagoRequest extends FormRequest
 
             'factura_id.exists' => 'Factura no existe',
             'factura_id.required' => 'Factura Obligatoria',
-
-            'estado.required' => 'Campo Obligatorio',
-            'estado.in' =>'Paga,Pendiente,Vencida'
-
         ];
     }
 

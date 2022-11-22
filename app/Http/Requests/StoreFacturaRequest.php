@@ -28,8 +28,6 @@ class StoreFacturaRequest extends FormRequest
         return [
             "nombreCliente" => 'required|min:2|max:50',
             "fecha" => 'required',
-            "valorTotal"  => 'required|min:4500|max:15000|numeric',
-            
         ];
     }
 
@@ -43,17 +41,8 @@ class StoreFacturaRequest extends FormRequest
 
 
             'fecha.required' => 'Fecha Obligatoria',
-        
-            'valorTotal.required' => 'Valor obligatorio',
-            'valorTotal.max' => 'El valor máximo es 15000',
-            'valorTotal.min' => 'El valor minimo es 4500',
-
-
             
             'user_id.required' => 'Usuario Obligatorio',
-
-            'estado.required' => 'Campo Obligatorio',
-            'estado.in' =>'Paga,Pendiente,Vencida'
 
         ];
     }

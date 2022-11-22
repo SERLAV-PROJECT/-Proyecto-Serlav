@@ -36,7 +36,7 @@ class StorePrendaRequest extends FormRequest
             "tipoTela" => 'required|min:4|max:50',
             "color" => 'required|min:4|max:25',
             "cantidad" => 'required|min:1|max:20|numeric' ,
-            "valor"  => 'required|min:4500|max:15000|numeric'
+            "valor"  => 'required|min:4500|numeric'
         ];
     }
 

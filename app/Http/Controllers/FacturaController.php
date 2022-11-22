@@ -7,6 +7,7 @@ use App\Models\Factura;
 use App\Models\User;
 use App\Models\Detalle;
 use App\Models\Prenda;
+use App\Models\Pago;
 use App\Http\Requests\StoreFacturaRequest;
 use Carbon\Carbon;
 
@@ -58,7 +59,7 @@ class FacturaController extends Controller
         $factura = new Factura();
         $factura->nombreCliente= $request->nombreCliente;
         $factura->fecha = $request->fecha;
-        $factura->valorTotal = $request->valorTotal;
+        $factura->valorTotal = "0";
         $factura->estado = "Pendiente";
         $factura->user_id = $request->user_id;
         $factura->save();
@@ -91,12 +92,19 @@ class FacturaController extends Controller
     {
         $detalle = Detalle::where('factura_id', '=', $idFactura)->get();
 
+        $total = 0;
+        foreach ($detalle as $it){
+            $total = ($it->prenda->valor + $total );
+        }
+
+        $pago = Pago::where('factura_id', '=', $idFactura)->get();
+
         $factura = Factura::find($idFactura);
 
         $prendas = Prenda::orderBy('id','DESC')->get();
 
         $usuario = User::all();
-        return view('factura.editfactura')->with('factura',$factura)->with('detalle',$detalle)->with('usuario',$usuario)->with('prendas', $prendas);
+        return view('factura.editfactura')->with('pago', $pago)->with('factura',$factura)->with('total',$total)->with('detalle',$detalle)->with('usuario',$usuario)->with('prendas', $prendas);
         
     }
 
@@ -107,16 +115,15 @@ class FacturaController extends Controller
      * @param  int  $idUsuario
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreFacturaRequest $request, $idUsuario)
+    public function update(StoreFacturaRequest $request, $idFactura)
     {
-        /*$factura = Factura::find($idFactura);
+        $factura = Factura::find($idFactura);
 
-        $facturas->nombreCliente = $request->get('nombreCliente');
+        var_dump($factura);
+        /*$facturas->nombreCliente = $request->get('nombreCliente');
         $facturas->fecha = $request->get('fecha');
         $facturas->valorTotal = $request->get('valorTotal');
-        $facturas->estado = $request->get('estado');
-        $factura->user_id = $request->get('user_id');
-       
+        $facturas->estado = "Pendiente";
 
         $factura->save();
 
