@@ -8,8 +8,10 @@ use App\Models\User;
 use App\Models\Detalle;
 use App\Models\Prenda;
 use App\Models\Pago;
+use App\Http\FacturaNotification;
 use App\Http\Requests\StoreFacturaRequest;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Notification; 
 
 class FacturaController extends Controller
 {
@@ -119,15 +121,14 @@ class FacturaController extends Controller
     {
         $factura = Factura::find($idFactura);
 
-        var_dump($factura);
-        /*$facturas->nombreCliente = $request->get('nombreCliente');
-        $facturas->fecha = $request->get('fecha');
-        $facturas->valorTotal = $request->get('valorTotal');
-        $facturas->estado = "Pendiente";
+        $factura->nombreCliente = $request->get('nombreCliente');
+        $factura->fecha = $request->get('fecha');
+        $factura->valorTotal = $request->get('valorTotal');
+        $factura->estado = "Pendiente";
 
         $factura->save();
 
-        return redirect('/facturas');*/
+        return redirect('/facturas');
     }
 
     /**
@@ -144,12 +145,13 @@ class FacturaController extends Controller
         return redirect('/facturas');
     }
 
-    public function notificacion()
+    public function notificacion($id)
     {
-        /*$date = Carbon::now();
-        $factura = Factura::whereRaw(' DATEDIFF(due_date, ? ) < ?', [$date, 30])->get();
-        User::all()->each(function(User $user) use ($factura){
-        $user->notify(new ProductsNotification($factura));*/
+        $date = Carbon::now()->addDays(30);
+        $user = User::find($id);
+        Factura::where('fecha', '<', $date)->get()->each(function($factura) use ($user) {
+        Notification::send($user, /*new FacturaNotification($factura)*/);
+        });
     }
 }
 

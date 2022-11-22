@@ -30,13 +30,7 @@ class PagoController extends Controller
         $pagos = new Pago();
 
         $pagos -> valor = $request -> get('valor');
-        
-        if($pagos->valor == $request -> get('valor'))
-        {
-            $pagos -> estado = "Paga";
-        }else{
-            $pagos -> estado = "Pendiente";
-        }
+        $pagos -> estado = "Paga";
         $pagos -> factura_id = $request -> get('factura_id');
 
         $pagos -> save();

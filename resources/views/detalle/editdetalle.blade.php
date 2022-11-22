@@ -19,7 +19,7 @@
                                     <label class=" form-control-label">Descripcion la Prenda</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                        <input type="text" id="descripcion" name="descripcion" class="form-control"  value="{{$detalle->descrpcion}}" tabindex="1">
+                                        <input type="text" id="descripcion" name="descripcion" class="form-control"  value="{{$detalle->descripcion}}" tabindex="1">
                                         <div class="valid-feedback">
                                         Correcto!
                                         </div>
@@ -34,7 +34,7 @@
                                     <label for="" class="form-label">Prenda</label>
                                     <select name="prenda_id" id="prenda_id">
                                         @foreach ($prenda as $prenda)
-                                        <option>{{ $prenda->id }}</option>
+                                        <option value="{{ $prenda->id }}">{{ $prenda->nombrePrenda }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -43,7 +43,7 @@
                                     <label for="" class="form-label">Factura</label>
                                     <select name="factura_id" id="factura_id">
                                         @foreach ($factura as $factura)
-                                        <option>{{ $factura->id}}</option>
+                                        <option  value="{{ $factura->id }}">{{ $factura->fecha }}</option>
                                         @endforeach
                                     </select>
                                 </div>

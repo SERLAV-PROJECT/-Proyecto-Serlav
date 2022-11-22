@@ -35,8 +35,7 @@ class StorePrendaRequest extends FormRequest
             "nombrePrenda" => 'required|min:4|max:50',
             "tipoTela" => 'required|min:4|max:50',
             "color" => 'required|min:4|max:25',
-            "cantidad" => 'required|min:1|max:20|numeric' ,
-            "valor"  => 'required|min:4500|numeric'
+            "cantidad" => 'required|min:1|max:20|numeric',
         ];
     }
 
@@ -60,14 +59,6 @@ class StorePrendaRequest extends FormRequest
             'cantidad.required' => 'Cantidad obligatorio',
             'cantidad.max' => 'El número máximo es 20',
             'cantidad.min' => 'El número minimo es 1',
-
-
-            'valor.required' => 'Valor obligatorio',
-            'valor.max' => 'El valor máximo es 15000',
-            'valor.min' => 'El valor minimo es 4500'
-
-
-           
 
         ];
 
