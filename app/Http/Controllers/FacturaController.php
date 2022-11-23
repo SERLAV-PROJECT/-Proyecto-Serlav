@@ -12,6 +12,7 @@ use App\Http\FacturaNotification;
 use App\Http\Requests\StoreFacturaRequest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Notification; 
+use DB;
 
 class FacturaController extends Controller
 {
@@ -101,11 +102,11 @@ class FacturaController extends Controller
 
         $pago = Pago::where('factura_id', '=', $idFactura)->get();
 
-        var_dump($pago);
-
         $factura = Factura::find($idFactura);
 
-        $prendas = Prenda::orderBy('id','DESC')->get();
+        $sql = 'SELECT * FROM detalle AS de RIGHT JOIN prenda AS pe ON de.prenda_id=pe.id WHERE de.factura_id = '.$idFactura.' ;';
+
+        $prendas = DB::select($sql);
 
         $usuario = User::all();
         return view('factura.editfactura')->with('pago', $pago)->with('factura',$factura)->with('total',$total)->with('detalle',$detalle)->with('usuario',$usuario)->with('prendas', $prendas);
