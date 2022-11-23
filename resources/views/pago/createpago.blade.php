@@ -27,7 +27,7 @@
                                     <label class=" form-control-label">Valor Total</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-bold"></i></div>
-                                        <input type="text" id="valor" name="valor" class="form-control @error('valor') is-invalid @enderror" value="{{ old('valor') }}" tabindex="2">
+                                        <input type="text" id="valor" name="valor" class="form-control @error('valor') is-invalid @enderror" value="{{ old('valorPago') }}" tabindex="2">
                                         <div class="valid-feedback">
                                             Correcto!
                                         </div>

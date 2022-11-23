@@ -101,6 +101,8 @@ class FacturaController extends Controller
 
         $pago = Pago::where('factura_id', '=', $idFactura)->get();
 
+        var_dump($pago);
+
         $factura = Factura::find($idFactura);
 
         $prendas = Prenda::orderBy('id','DESC')->get();

@@ -36,7 +36,7 @@
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
-        @livewire('header')
+        
         
         <!-- Header-->
 
