@@ -26,7 +26,7 @@ class FacturaController extends Controller
     public function index()
     {
 
-        $sql = 'SELECT * FROM users AS us RIGHT JOIN model_has_roles AS mo ON us.id=mo.model_id WHERE mo.role_id = 3 && us.documento = us.documento;';
+        $sql = 'SELECT * FROM factura AS fa RIGHT JOIN users AS us ON fa.id=us.id WHERE us.email = us.email;';
         
         $usuario = DB::select($sql);
 
