@@ -45,7 +45,7 @@
             <div>
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
+                        {{ __('Olvidaste tu Contraseña?') }}
                     </a>
                 @endif
 
@@ -127,10 +127,9 @@
       <div class="panels-container">
         <div class="panel left-panel">
           <div class="content">
-            <h3>New here ?</h3>
+            <h3>Registrate</h3>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-              ex ratione. Aliquid!
+              Ingresa tus datos con nosotros y Conoce de nuestros Servicios
             </p>
             <button class="btn transparent" id="sign-up-btn">
               Sign up
@@ -140,10 +139,12 @@
         </div>
         <div class="panel right-panel">
           <div class="content">
-            <h3>One of us ?</h3>
+            <h3>Unete a Nosotros</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              laboriosam ad deleniti.
+             Gracias por confiar en nosotros
+            </p>
+            <p>
+              No te vas a repentir
             </p>
             <button class="btn transparent" id="sign-in-btn">
               Sign in

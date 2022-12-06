@@ -111,7 +111,9 @@
                                         @error('estado')
                                             <span class="invalid-feedback">{{ $message }}</span>
                                         @enderror
+                                        
                                     </div>
+                                    <br>
                                     <div class="mb-3">
                                         <label for="" class="form-label">Rol</label>
                                         <select name="roles" id="roles">
@@ -120,7 +122,6 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <small class="form-text text-muted">ex. Activo o Inactivo</small>
                                 </div>
                                 <a href="/usuarios" class="btn btn-secondary" tabindex="9">Cancelar</a>
                                 <button type="submit" class="btn btn-primary" tabindex="10">Guardar</button>

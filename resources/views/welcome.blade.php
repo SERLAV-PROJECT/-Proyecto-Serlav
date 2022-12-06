@@ -161,7 +161,7 @@
             <div class="row">
                 <div class="col-lg-6 col-xl-5">
                     <div class="text-container">
-                        <div class="section-title">ABOUT US</div>
+                        <div class="section-title">Quienes Somos</div>
                         <h2>SERLAV</h2>
                         <p>Lavamos tu ropa del modo que desees, nos adaptamos a ti, respondemos a cada una de tus necesidades y así aprovechas al máximo tu tiempo libre ¡Todo esto, cuidando el medio ambiente y sus recursos!</p>
                         <a class="btn-outline-reg" href="">Details</a>
@@ -275,7 +275,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h4>Trusted by over <span class="blue">5000</span> customers worldwide</h4>
+                    <h4>Mas de <span class="blue">300</span> provedores a nivel nacional</h4>
                     <hr class="section-divider">
 
                     <!-- Image Slider -->
@@ -318,7 +318,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="h2-heading">Customer testimonials</h2>
+                    <h2 class="h2-heading">Algunos Testimonios</h2>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
             <div class="row">
@@ -328,9 +328,9 @@
                     <div class="card">
                         <img class="quotes" src="{{ asset ('/images/quotes.svg') }}" alt="alternative">
                         <div class="card-body">
-                            <p class="testimonial-text">Suspendisse vitae enim arcu. Aliqu convallis risus a felis blandit, at mollis nisi bibendum aliquam noto ricos</p>
+                            <p class="testimonial-text">Serlav es un sistema  muy agradable ya que me ayuda a estar pendiente de cuando debo de hacer pagas mis facturas</p>
                             <div class="testimonial-author">Roe Smith</div>
-                            <div class="occupation">General Manager, Presentop</div>
+                            <div class="occupation">Cliente</div>
                         </div>
                         <div class="gradient-floor red-to-blue"></div>
                     </div>
@@ -340,9 +340,9 @@
                     <div class="card">
                         <img class="quotes" src="{{ asset ('/images/quotes.svg') }}" alt="alternative">
                         <div class="card-body">
-                            <p class="testimonial-text">Suspendisse vitae enim arcu. Aliqu convallis risus a felis blandit, at mollis nisi bibendum aliquam noto ricos</p>
+                            <p class="testimonial-text">Su sistema es  muy completo por lo que he decisido siempre llevar mis prendas a su lavanderia </p>
                             <div class="testimonial-author">Sam Bloom</div>
-                            <div class="occupation">General Manager, Presentop</div>
+                            <div class="occupation">Cliente</div>
                         </div>
                         <div class="gradient-floor blue-to-purple"></div>
                     </div>
@@ -352,9 +352,9 @@
                     <div class="card">
                         <img class="quotes" src="{{ asset ('/images/quotes.svg') }}" alt="alternative">
                         <div class="card-body">
-                            <p class="testimonial-text">Suspendisse vitae enim arcu. Aliqu convallis risus a felis blandit, at mollis nisi bibendum aliquam noto ricos</p>
+                            <p class="testimonial-text">El sistema es muy beneficioso ya que antes tenia que llevar un control de mis facturas de manera manual por lo que era un poco tedioso</p>
                             <div class="testimonial-author">Bill McKenzie</div>
-                            <div class="occupation">General Manager, Presentop</div>
+                            <div class="occupation">Administardor</div>
                         </div>
                         <div class="gradient-floor purple-to-green"></div>
                     </div>
@@ -371,7 +371,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h4>If you want to find out which are the right influencers for your product marketing campaigns then follow us</h4>
+                    <h4>La calidad en un producto o servicio no es lo que tu le pones… sino lo que el cliente obtiene</h4>
                     <div class="social-container">
                         <span class="fa-stack">
                             <a href="#your-link">

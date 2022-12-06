@@ -25,8 +25,13 @@ class FacturaController extends Controller
      */
     public function index()
     {
+
+        $sql = 'SELECT * FROM users AS us RIGHT JOIN model_has_roles AS mo ON us.id=mo.model_id WHERE mo.role_id = 3 && us.documento = us.documento;';
+        
+        $usuario = DB::select($sql);
+
         $facturas = Factura::all();
-        $usuario = User::all();
+      
         return view('factura.listfactura')->with('facturas', $facturas)->with('usuario',$usuario);
     }
 
@@ -69,6 +74,7 @@ class FacturaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreFacturaRequest $request)
+
     {
 
         $factura = new Factura();

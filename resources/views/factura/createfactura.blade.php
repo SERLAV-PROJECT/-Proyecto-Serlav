@@ -1,7 +1,11 @@
 @extends('layouts.plantillabase');
-
+<br>
 @section('contenido')
+
+
 <h2>Crear Facturas</h2>
+
+<br>
 
 <form action="/facturas" method="POST">
     @csrf
