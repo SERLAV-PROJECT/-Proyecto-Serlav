@@ -122,7 +122,9 @@ class FacturaController extends Controller
 
         $factura = Factura::find($idFactura);
 
-        $prendas = Prenda::all();
+        $sql = 'SELECT * FROM detalle AS de RIGHT JOIN prenda AS pe ON de.prenda_id=pe.id WHERE de.factura_id = '.$idFactura.' ;';
+
+        $prendas = DB::select($sql);
 
         $usuario = User::all();
         
