@@ -7,17 +7,18 @@
     @csrf
     <div class="mb-3">
         <label for="" class="form-label">Nombre Cliente</label>
-        <input type="text" id="nombreCliente" name="nombreCliente" class="form-control @error('nombreCliente') is-invalid @enderror" value="{{ old('nombreCliente') }}" tabindex="1">
-        <div class="valid-feedback">
-            Correcto!
-        </div>
+        <select name="nombreCliente" id="nombreCliente">
+            @foreach ($clientes as $cliente)
+            <option value="{{ $cliente->name }}">{{ $cliente->name }}</option>
+            @endforeach
+        </select>
         @error('nombreCliente')
             <span class="invalid-feedback">{{ $message }}</span>
         @enderror
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Fecha</label>
-        <input type="date" id="fecha" name="fecha" class="form-control @error('fecha') is-invalid @enderror" value="{{ old('fecha', $date->format('Y-m-d')) }}" tabindex="2">
+        <input type="date" id="fecha" name="fecha" class="form-control @error('fecha') is-invalid @enderror" value="{{ old('fecha', $date->format('Y-m-d')) }}" min="{{ $date->format('Y-m-d') }}" max="{{ $date->format('Y-m-d') }}" tabindex="2">
         <div class="valid-feedback">
             Correcto!
         </div>

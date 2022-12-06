@@ -36,7 +36,7 @@ class PrendaController extends Controller
         
         $prendas -> save();
 
-        return redirect('/prendas');
+        return redirect()->back();
     }
 
     

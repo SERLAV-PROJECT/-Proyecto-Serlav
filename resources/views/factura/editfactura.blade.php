@@ -1,5 +1,9 @@
 @extends('layouts.plantillacreate');
 
+@section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+@endsection
+
 @section('addPendra')
 
         <!-- Content -->
@@ -54,7 +58,7 @@
                                         </div>
                                         <div class="card-body--">
                                             <div class="table-stats order-table ov-h">
-                                                <table id="prendas" class="table table-striped table-bordered">
+                                                <table class="table table-striped table-bordered">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">Prenda</th>
@@ -101,13 +105,14 @@
                                         </div>
                                         <div class="card-body--">
                                             <div class="table-stats order-table ov-h">
-                                                <table class="table ">
+                                                <table id="prendas" class="table ">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">ID</th>
                                                             <th scope="col">Prenda</th>
                                                             <th scope="col">Tipo de Tela</th>
                                                             <th scope="col">Color</th>
+                                                            <th scope="col">...</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -117,20 +122,21 @@
                                                             <td><span class="name">{{ $prenda->nombrePrenda }}</span> </td>
                                                             <td><span class="name">{{ $prenda->tipoTela}}</span></td>
                                                             <td><span class="name">{{ $prenda->color }}</span></td>
+                                                            <td><a href="/detalles/create" class="btn btn-warning"><i class="fa fa-pencil"></i></a></td>
                                                         </tr>
                                                         @endforeach
                                                     </tbody>
                                                 </table>
-                                            </div> <!-- /.table-stats -->
+                                            </div> 
                                         </div>
-                                    </div> <!-- /.card -->
+                                    </div>
                                 </div>
                             </div>
-                        </div> <!-- /.col-md-4 -->
+                        </div>
 
                         <div class="col-xl-5">
                             <div class="row">
-                                <div class="col-lg-6 col-xl-12">
+                                <div class="col-lg-5 col-xl-12">
                                     <div class="card br-0">
                                         <div class="card-body">
                                             <h4 class="box-title">Acciones</h4>
@@ -167,9 +173,113 @@
                                 </div>
                             </div>
                         </div> <!-- /.col-md-4 -->
+
+                        <div class="col-xl-7">
+                            <div class="row">
+                                <div class="col-lg-6 col-xl-12">
+                                    <div class="card br-0">
+                                        <div class="card-body">
+                                            <h4 class="box-title">Agregar</h4>
+                                        </div>
+                                        <div class="card-body">
+                                                <form action="/prendas" method="POST">
+                                                @csrf
+                                                <div class="mb-3">
+                                                    <label class="">Nombre de la Prenda</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                        <input type="text" id="name" name="nombrePrenda" class="form-control @error('nombrePrenda') is-invalid @enderror" value="{{ old('nombrePrenda') }}" tabindex="1">
+                                                    @error('nombrePrenda')
+                                                        <span class="invalid-feedback">{{ $message }}</span>
+                                                    @enderror
+                                                    </div>
+                                                </div> 
+                                                <br> 
+                                                <div class="">
+                                                    <label class="">Tipo de Tela</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-bold"></i></div>
+                                                        <input type="text" id="tipoTela" name="tipoTela" class="form-control @error('tipoTela') is-invalid @enderror" value="{{ old('tipoTela') }}" tabindex="2">
+                                                        @error('tipoTela')
+                                                            <span class="invalid-feedback">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>    
+                                                <br>
+
+                                                <div class="">
+                                                    <label class="">Color</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-bold"></i></div>
+                                                        <input type="text" id="color" name="color" class="form-control @error('color') is-invalid @enderror" value="{{ old('color') }}" tabindex="2">
+                                                        @error('color')
+                                                            <span class="invalid-feedback">{{ $message }}</span>
+                                                        @enderror  
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                         
+                                                <div class="">
+                                                    <label class="">Cantidad</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                                        <input type="text" id="cantidad" name="cantidad" class="form-control @error('cantidad') is-invalid @enderror" value="{{ old('cantidad') }}" tabindex="4">
+                                                        @error('cantidad')
+                                                            <span class="invalid-feedback">{{ $message }}</span>
+                                                        @enderror
+                                                    </div> 
+                                                </div>       
+                                                <br>        
+                                            
+                                                <div class="">
+                                                    <label class="">Valor</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-male"></i></div>
+                                                        <input type="number" id="valor" name="valor" class="form-control @error('valor') is-invalid @enderror" value="{{ old('valor') }}" tabindex="3">
+                                                        @error('valor')
+                                                            <span class="invalid-feedback">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <a href="/prendas" class="btn btn-secondary" tabindex="9">Cancelar</a>
+                                                <button type="submit" class="btn btn-primary" tabindex="10">Guardar</button>
+                                            </form>
+                                        </div>
+                                    </div> <!-- /.card -->
+                                </div>
+                            </div>
+                        </div> <!-- /.col-md-4 -->
                     </div>
                 </div>
                 <!-- /.orders -->
             </div>
         </div>
+@endsection
+
+@section('js')
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#prendas').DataTable({
+                "pageLength" : 3,
+                "lengthMenu": [[3, 5, 10, -1], [3, 5, 10, 'Todos']],
+                "language": {
+                    "search": "Buscar",
+                    "lengthMenu": "Mostrar _MENU_ registros por página",
+                    
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "paginate": {
+                        "previous": "<",
+                        "next": ">",
+                        "first": "Primero",
+                        "last": "Último"
+                    }
+                }
+            });
+        });
+    </script>
 @endsection

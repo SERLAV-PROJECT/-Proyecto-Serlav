@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/cs-skin-elastic.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    <link href="dist/css/bootstrap-colorpicker.css" rel="stylesheet">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 

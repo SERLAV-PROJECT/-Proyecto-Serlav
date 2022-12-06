@@ -24,6 +24,8 @@ Route::resource('prendas', PrendaController::class)->names('prenda.dashboard');
 Route::resource('pagos', PagoController::class)->names('pago.dashboard');
 Route::resource('detalles', DetalleController::class)->names('detalle.dashboard');
 
+Route::get('download-pdf', [FacturaController::class, 'downloadPdf'])->name('download-pdf');
+
 Route::get('/', function () {
     return view('welcome');
 });

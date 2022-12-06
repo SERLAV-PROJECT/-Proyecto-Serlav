@@ -21,7 +21,7 @@
                                             <th scope="col">Valor Total</th>
                                             <th scope="col">Usuario</th>
                                             <th scope="col">Estado</th>
-                                            <th scope="col" >Acciones <a href="facturas/create" class="btn btn-primary"><i class="fa fa-plus-circle"></i></a></th>
+                                            <th scope="col" >Acciones<a href="{{ route('download-pdf') }}" class="btn btn-success btn-sm"><i class="fa fa-file-text-o"></i></a> <a href="facturas/create" class="btn btn-primary"><i class="fa fa-plus-circle"></i></a></th>
                                         </tr>
                                      </thead>
                                     <tbody>

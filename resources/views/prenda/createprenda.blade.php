@@ -12,7 +12,7 @@
                                 <strong>Crear Prenda</strong>
                             </div>
                             <div class="card-body card-block">
-                            <form action="/prendas" method="POST">
+                            <form action="{{ route('store-prendas') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label class=" form-control-label">Nombre de la Prenda</label>
@@ -46,13 +46,8 @@
                                     <label class=" form-control-label">Color</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-bold"></i></div>
-                                        <input type="text" id="color" name="color" class="form-control @error('color') is-invalid @enderror" value="{{ old('color') }}" tabindex="2">
-                                        <div class="valid-feedback">
-                                            Correcto!
-                                        </div>
-                                        @error('color')
-                                            <span class="invalid-feedback">{{ $message }}</span>
-                                        @enderror  
+                                        <label>Color picker</label>
+                                        <input type="text" class="form-control" id="colorPicker">
                                 </div>
                                 <br>
                                         
@@ -85,7 +80,7 @@
 
                                 </div>
                                 <br>
-                                <a href="/prendas" class="btn btn-secondary" tabindex="9">Cancelar</a>
+                                <a href="/facturas" class="btn btn-secondary" tabindex="9">Cancelar</a>
                                 <button type="submit" class="btn btn-primary" tabindex="10">Guardar</button>
                             </form>
                             </div>
@@ -94,4 +89,8 @@
                 </div>
             </div>
 </div>
+@endsection
+
+@section('js')
+
 @endsection

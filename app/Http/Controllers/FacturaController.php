@@ -12,7 +12,9 @@ use App\Http\FacturaNotification;
 use App\Http\Requests\StoreFacturaRequest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Notification; 
-use DB;
+use Illuminate\Support\Facades\DB;
+use PDF;
+use App\Http\Requests\StorePrendaRequest;
 
 class FacturaController extends Controller
 {
@@ -28,10 +30,15 @@ class FacturaController extends Controller
         return view('factura.listfactura')->with('facturas', $facturas)->with('usuario',$usuario);
     }
 
-    public function pdf()
+    public function downloadPdf()
     {
         $facturas = Factura::all();
-        return view('factura.pdf')->with('facturas', $facturas);
+
+        view()->share('factura.pdf',$facturas);
+
+        $pdf = PDF::loadView('factura.pdf', ['facturas' => $facturas]);
+
+        return $pdf->download('factura.pdf');
     }
 
 
@@ -44,10 +51,15 @@ class FacturaController extends Controller
     {
         $prendas = Prenda::all();
 
+        $sql = 'SELECT * FROM users AS us RIGHT JOIN model_has_roles AS mo ON us.id=mo.model_id WHERE mo.role_id = 3;';
+        $clientes = DB::select($sql);
+
         $date = Carbon::now();
 
-        $usuarios = User::All();
-        return view('factura.createfactura')->with('usuarios', $usuarios)->with('prendas', $prendas)->with('date', $date);
+        $sql1 = 'SELECT * FROM users AS us RIGHT JOIN model_has_roles AS mo ON us.id=mo.model_id WHERE mo.role_id = 2 || mo.role_id = 1;';
+        $usuarios = DB::select($sql1);
+
+        return view('factura.createfactura')->with('usuarios', $usuarios)->with('clientes', $clientes)->with('prendas', $prendas)->with('date', $date);
     }
 
     /**
@@ -82,7 +94,7 @@ class FacturaController extends Controller
      */
     public function show($idFactura)
     {
-        //
+       //
     }
 
     /**
@@ -91,7 +103,7 @@ class FacturaController extends Controller
      * @param  int  $idUsuario
      * @return \Illuminate\Http\Response
      */
-    public function edit($idFactura)
+    public function edit(StoreFacturaRequest $request, $idFactura)
     {
         $detalle = Detalle::where('factura_id', '=', $idFactura)->get();
 
@@ -104,13 +116,11 @@ class FacturaController extends Controller
 
         $factura = Factura::find($idFactura);
 
-        $sql = 'SELECT * FROM detalle AS de RIGHT JOIN prenda AS pe ON de.prenda_id=pe.id WHERE de.factura_id = '.$idFactura.' ;';
-
-        $prendas = DB::select($sql);
+        $prendas = Prenda::all();
 
         $usuario = User::all();
-        return view('factura.editfactura')->with('pago', $pago)->with('factura',$factura)->with('total',$total)->with('detalle',$detalle)->with('usuario',$usuario)->with('prendas', $prendas);
         
+        return view('factura.editfactura')->with('pago', $pago)->with('factura',$factura)->with('total',$total)->with('detalle',$detalle)->with('usuario',$usuario)->with('prendas', $prendas);
     }
 
     /**

@@ -28,7 +28,13 @@
                                             <td>{{ $pago->id }}</td>
                                             <td>{{ $pago->factura->fecha}}</td>
                                             <td>{{ $pago->valor }}</td>
-                                            <td>{{ $pago->estado }}</td>
+                                            @if ($pago->valor < $pago->factura->valorTotal )
+                                            <td>{{ $pago->estado = "Pendiente" }}</td>
+                                            
+                                            @else
+                                            <td>{{ $pago->estado = "Paga" }}</td>  
+                                            
+                                            @endif
 
                                             <td colspan="2">
                                                 <form action="/pagos/{{ $pago->id }}" method="POST">

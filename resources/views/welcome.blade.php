@@ -78,8 +78,8 @@
                 <div class="col-lg-6 col-xl-5">
                     <div class="text-container">
                         <h1 class="h1-large">Conoce nuestros servicios</h1>
-                        <p class="p-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim, neque ut ultrices sollicitudin</p>
-                        <a class="btn-solid-lg" href="#services">Offered services</a>
+                        <p class="p-large">En SERLAV nos caracterizamos por la calidad y cumplimiento en la prestación de nuestros servicios ya que contamos con un excelente recurso humano y equipos adecuados para el tratamiento de sus prendas.</p>
+                        <a class="btn-solid-lg" href="#services">Aqui</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6 col-xl-7">
@@ -97,7 +97,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Explore our services</h2>
+                    <h2>Explore nuestros servicios</h2>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
             <div class="row">
@@ -109,8 +109,8 @@
                             <span class="fas fa-headphones-alt"></span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Analyse your product</h5>
-                            <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra. Nullam pharetra ante at nunc elementum</p>
+                            <h5 class="card-title">Lavado en Seco</h5>
+                            <p>Pregunta por nuestras promociones y combos vigentes</p>
                             <a class="read-more no-line" href="">Learn more <span class="fas fa-long-arrow-alt-right"></span></a>
                         </div>
                     </div>
@@ -122,8 +122,11 @@
                             <span class="far fa-clipboard"></span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Evaluate opportunities</h5>
-                            <p>Vulputate nibh feugiat. Morbi pellent diam nec libero lacinia, sed ultrices velit scelerisque. Nunc placerat justo sem</p>
+                            <h5 class="card-title">Servicio de Lavanderia</h5>
+                            <p>Prendas de Vestir
+                                Lencería
+                                Ropa Institucional
+                                Ropa hotelera</p>
                             <a class="read-more no-line" href="">Learn more <span class="fas fa-long-arrow-alt-right"></span></a>
                         </div>
                     </div>
@@ -135,8 +138,8 @@
                             <span class="far fa-comments"></span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Find the influencers</h5>
-                            <p>Ety suscipit metus sollicitudin euqu isq imperdiet nibh nec magna tincidunt, nec pala vehicula neque sodales verum</p>
+                            <h5 class="card-title">Lavado Tapetes y Cortinas</h5>
+                            <p>CONTRIBUIMOS CON EL MEDIO AMBIENTE</p>
                             <a class="read-more no-line" href="">Learn more <span class="fas fa-long-arrow-alt-right"></span></a>
                         </div>
                     </div>
@@ -159,8 +162,8 @@
                 <div class="col-lg-6 col-xl-5">
                     <div class="text-container">
                         <div class="section-title">ABOUT US</div>
-                        <h2>We have ten years experience in marketing</h2>
-                        <p>Etiam tempus condimentum congue. In sit amet nisi eget massa condimentum lobortis eget ac eros. In hac habitasse platea dictumst. Aenean molestie mauris eget sapien sagittis, a bibendum magna tincidunt</p>
+                        <h2>SERLAV</h2>
+                        <p>Lavamos tu ropa del modo que desees, nos adaptamos a ti, respondemos a cada una de tus necesidades y así aprovechas al máximo tu tiempo libre ¡Todo esto, cuidando el medio ambiente y sus recursos!</p>
                         <a class="btn-outline-reg" href="">Details</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
@@ -180,8 +183,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <h2 class="h2-heading">Online service features</h2>
-                    <p class="p-heading">Suspendisse vitae enim arcu. Aliquam convallis risus a felis blandit, at mollis nisi bibendum. Aliquam nec purus at ex blandit posuere nec a odio. Proin lacinia dolor justo</p>
+                    <h2 class="h2-heading">¡Obtén los mejores resultados desde la comodidad de tu casa!</h2>
+                    <p class="p-heading">Nosotros hacemos el trabajo por ti. Recogemos donde quieras tus prendas para el proceso de lavado, secado, planchado y doblado. En 24* horas todo estará limpio y como nuevo en tu puerta. Ahorras dinero en el pago de servicios, en la compra de detergentes y evitas la fatiga de lavar o salir y quedar atrapado en un trancón. Así de sencillo: más fácil, más rápido y más momentos para que goces la vida.</p>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->   
             <div class="row">

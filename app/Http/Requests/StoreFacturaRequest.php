@@ -26,23 +26,13 @@ class StoreFacturaRequest extends FormRequest
     public function rules()
     {
         return [
-            "nombreCliente" => 'required|min:2|max:50',
-            "fecha" => 'required',
+
         ];
     }
 
     public function messages()
     {
         return [
-            
-            'nombreCliente.required' => 'Nombre obligatorio',
-            'nombreCliente.min' => 'El nombre del Cliente minimo de 2 caractres',
-            'nombreCliente.max' => 'El nombre del Cliente maximo de 50 caractres',
-
-
-            'fecha.required' => 'Fecha Obligatoria',
-            
-            'user_id.required' => 'Usuario Obligatorio',
 
         ];
     }
